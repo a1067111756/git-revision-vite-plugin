@@ -1,0 +1,21 @@
+{
+  "env": {
+    "browser": true,
+    "node": false
+  },
+  "extends": [
+    /** @see https://eslint.vuejs.org/rules/ */
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/vue3-recommended",
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "rules": {
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "vue/singleline-html-element-content-newline": "off"
+  }
+}
