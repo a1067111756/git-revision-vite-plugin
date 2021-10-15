@@ -41,10 +41,10 @@ export default {
 Use in code:
 ```javascript
 <script setup lang="ts">
-    console.log(COMMITHASH)
-    console.log(VERSION)
-    console.log(BRANCH)
-    console.log(LASTCOMMITDATETIME)
+    console.log(GIT_COMMITHASH)
+    console.log(GIT_VERSION)
+    console.log(GIT_BRANCH)
+    console.log(GIT_LASTCOMMITDATETIME)
 </script>
 ```
 
@@ -70,7 +70,7 @@ export default {
 ```
 
 ### `versionVar: string`
-如果需要自定义version的注入变量名，需要配置此选项（默认为`versionVar: VERSION`）:
+如果需要自定义version的注入变量名，需要配置此选项（默认为`versionVar: GIT_VERSION`）:
 
 ```javascript
 import Vue from '@vitejs/plugin-vue';
@@ -80,7 +80,7 @@ export default {
     plugins: [
         Vue(),
         GitRevisionVitePlugin({
-            versionVar: 'VERSION'
+            versionVar: 'GIT_VERSION'
         })
     ],
 };
@@ -138,7 +138,7 @@ export default {
 ```
 
 ### `branchVar: string`
-如果需要自定义branch的注入变量名，需要配置此选项（默认为`branch: BRANCH`）:
+如果需要自定义branch的注入变量名，需要配置此选项（默认为`branch: GIT_BRANCH`）:
 
 ```javascript
 import Vue from '@vitejs/plugin-vue';
@@ -148,7 +148,7 @@ export default {
     plugins: [
         Vue(),
         GitRevisionVitePlugin({
-            branchVar: 'BRANCH'
+            branchVar: 'GIT_BRANCH'
         })
     ],
 };
@@ -189,7 +189,7 @@ export default {
 ```
 
 ### `commitHashVar: string`
-如果需要自定义commitHash的注入变量名，需要配置此选项（默认为`commitHashVar: COMMITHASH`）:
+如果需要自定义commitHash的注入变量名，需要配置此选项（默认为`commitHashVar: GIT_COMMITHASH`）:
 
 ```javascript
 import Vue from '@vitejs/plugin-vue';
@@ -199,7 +199,7 @@ export default {
     plugins: [
         Vue(),
         GitRevisionVitePlugin({
-            commitHashVar: 'COMMITHASH'
+            commitHashVar: 'GIT_COMMITHASH'
         })
     ],
 };
@@ -242,7 +242,7 @@ export default {
 ```
 
 ### `lastCommitDateTimeVar: string`
-如果需要自定义commitHash的注入变量名，需要配置此选项（默认为`lastCommitDateTimeVar: LASTCOMMITDATETIME`）:
+如果需要自定义commitHash的注入变量名，需要配置此选项（默认为`lastCommitDateTimeVar: GIT_LASTCOMMITDATETIME`）:
 
 ```javascript
 import Vue from '@vitejs/plugin-vue';
@@ -252,7 +252,7 @@ export default {
     plugins: [
         Vue(),
         GitRevisionVitePlugin({
-            lastCommitDateTimeVar: 'LASTCOMMITDATETIME'
+            lastCommitDateTimeVar: 'GIT_LASTCOMMITDATETIME'
         })
     ],
 };
@@ -298,23 +298,27 @@ ___
 > a. git信息的注入是使用vite -> config -> define选项在编译时全局进行静态替换，但存在一个问题是不支持import.meta.env上的注入，目前发现是这样的(https://cn.vitejs.dev/config/#define)  
 > b. 要实现注入到import.meta.env现阶段的想法是使用vite提供的loadEnv接口，但是还未实际操作，后续版本可能改为此形式
 
+#### 注入的变量名为什么是GIT_打头？
+> a. 原因是避免注入的全局变量名和其它模块冲突（实际开发中有遇到其它三方库使用了VERSION这个变量名导致在打包时被静态替换出现错误），当然如果你不满意可以通过全局选项修改。
+
+
 #### 怎么解决全局注入变量名的提示报错？
 ```
     // .eslintrc.json - 解决eslint校验报错
     {
       "globals": {
-        "BRANCH": true,
-        "VERSION": true,
-        "COMMITHASH": true,
-        "LASTCOMMITDATETIME": true
+        "GIT_BRANCH": true,
+        "GIT_VERSION": true,
+        "GIT_COMMITHASH": true,
+        "GIT_LASTCOMMITDATETIME": true
       }
     }
     
     // global.d.ts - 解决ts找不到声明变量
-    declare const BRANCH: string
-    declare const COMMITHASH: string
-    declare const VERSION: string
-    declare const LASTCOMMITDATETIME: string   
+    declare const GIT_BRANCH: string
+    declare const GIT_COMMITHASH: string
+    declare const GIT_VERSION: string
+    declare const GIT_LASTCOMMITDATETIME: string   
 ```
 
 ### 五、扩展功能

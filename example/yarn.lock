@@ -412,10 +412,10 @@ get-intrinsic@^1.0.2:
     has "^1.0.3"
     has-symbols "^1.0.1"
 
-git-revision-vite-plugin@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/git-revision-vite-plugin/-/git-revision-vite-plugin-0.0.6.tgz#c46b9d9a522b5b523359790687fd278153551a9f"
-  integrity sha512-TiTO7hsdy66eY7WKCR99BzK34l0CjDqiHYGPVf4/XLvI5pBp3gJ4p7QVBXfgiiEwVjyOZyaP/Tib/ETCn0Ckww==
+git-revision-vite-plugin@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/git-revision-vite-plugin/-/git-revision-vite-plugin-0.0.7.tgz#6a6aa8390d600602c2cddd57cd264b6b961d5939"
+  integrity sha512-rrbNaGrrRhnEFyeHtd+ylykUeBh5ARMjvcGlYRyvXRlcu/+ZHnWJLKSWUawTKUQh6grJ25AjgMORaI6AbCha6A==
 
 has-symbols@^1.0.1, has-symbols@^1.0.2:
   version "1.0.2"

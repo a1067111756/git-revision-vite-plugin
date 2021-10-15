@@ -1,7 +1,7 @@
 {
   "name": "git-revision-vite-plugin",
   "license": "MIT",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "author": "chengyu",
   "description": "git revision for vite plugin",
   "main": "./dist/git-revision-vite-plugin.umd.js",
@@ -20,7 +20,6 @@
   "files": ["dist"],
   "keywords": ["vite", "git", "revision", "plugin"],
   "scripts": {
-    "dev": "vite",
     "build-types": "node ./types-excutor.js",
     "build": "vue-tsc --noEmit && vite build && npm run build-types",
     "serve": "vite preview"

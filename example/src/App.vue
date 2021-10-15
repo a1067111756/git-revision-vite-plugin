@@ -1,10 +1,10 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-console.log(COMMITHASH)
-console.log(VERSION)
-console.log(BRANCH)
-console.log(LASTCOMMITDATETIME)
+console.log(GIT_BRANCH)
+console.log(GIT_COMMITHASH)
+console.log(GIT_VERSION)
+console.log(GIT_LASTCOMMITDATETIME)
 console.log(GIT_TAG)
 </script>
 

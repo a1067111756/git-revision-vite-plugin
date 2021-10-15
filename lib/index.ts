@@ -10,10 +10,10 @@ const BRANCH_COMMAND = 'rev-parse --abbrev-ref HEAD'
 const LASTCOMMITDATETIME_COMMAND = 'log -1 --format=%cI'
 
 // 预定义挂载变量名
-const COMMITHASH_VAR = 'COMMITHASH'
-const VERSION_VAR = 'VERSION'
-const BRANCH_VAR = 'BRANCH'
-const LASTCOMMITDATETIME_VAR = 'LASTCOMMITDATETIME'
+const COMMITHASH_VAR = 'GIT_COMMITHASH'
+const VERSION_VAR = 'GIT_VERSION'
+const BRANCH_VAR = 'GIT_BRANCH'
+const LASTCOMMITDATETIME_VAR = 'GIT_LASTCOMMITDATETIME'
 
 // 默认全局选项
 const defaultOpt: GitRevisionPluginOptions = {
@@ -50,36 +50,36 @@ export default function GitRevisionVitePlugin (options?: GitRevisionPluginOption
     name: 'git-revision-vite-plugin',
     config: async (config: UserConfig, env: { mode: string, command: string }) => {
       // 执行commit hash
-      await getCommitHash(mergeOptions)
+      mergeOptions.commitHash && await getCommitHash(mergeOptions)
         .then((output: string) => {
-          config.define![`${COMMITHASH_VAR}`] = JSON.stringify(output)
+          config.define![`${mergeOptions.commitHashVar}`] = JSON.stringify(output)
         })
         .catch((err: any) => {
           throw new Error(err)
         })
 
       // 执行version
-      await getVersion(mergeOptions)
+      mergeOptions.version && await getVersion(mergeOptions)
         .then((output: string) => {
-          config.define![`${VERSION_VAR}`] = JSON.stringify(output)
+          config.define![`${mergeOptions.versionVar}`] = JSON.stringify(output)
         })
         .catch((err: any) => {
           throw new Error(err)
         })
 
       // 执行branch
-      await getBranch(mergeOptions)
+      mergeOptions.branch && await getBranch(mergeOptions)
         .then((output: string) => {
-          config.define![`${BRANCH_VAR}`] = JSON.stringify(output)
+          config.define![`${mergeOptions.branchVar}`] = JSON.stringify(output)
         })
         .catch((err: any) => {
           throw new Error(err)
         })
 
       // 执行lastCommitDateTime
-      await getLastCommitDateTime(mergeOptions)
+      mergeOptions.lastCommitDateTime && await getLastCommitDateTime(mergeOptions)
         .then((output: string) => {
-          config.define![`${LASTCOMMITDATETIME_VAR}`] = JSON.stringify(output)
+          config.define![`${mergeOptions.lastCommitDateTimeVar}`] = JSON.stringify(output)
         })
         .catch((err: any) => {
           throw new Error(err)
