@@ -48,9 +48,9 @@ export default function GitRevisionVitePlugin (options?: GitRevisionPluginOption
 
   return {
     name: 'git-revision-vite-plugin',
-    config (config: UserConfig, env: { mode: string, command: string }) {
+    config: async (config: UserConfig, env: { mode: string, command: string }) => {
       // 执行commit hash
-      getCommitHash(mergeOptions)
+      await getCommitHash(mergeOptions)
         .then((output: string) => {
           config.define![`${COMMITHASH_VAR}`] = JSON.stringify(output)
         })
@@ -59,7 +59,7 @@ export default function GitRevisionVitePlugin (options?: GitRevisionPluginOption
         })
 
       // 执行version
-      getVersion(mergeOptions)
+      await getVersion(mergeOptions)
         .then((output: string) => {
           config.define![`${VERSION_VAR}`] = JSON.stringify(output)
         })
@@ -68,7 +68,7 @@ export default function GitRevisionVitePlugin (options?: GitRevisionPluginOption
         })
 
       // 执行branch
-      getBranch(mergeOptions)
+      await getBranch(mergeOptions)
         .then((output: string) => {
           config.define![`${BRANCH_VAR}`] = JSON.stringify(output)
         })
@@ -77,7 +77,7 @@ export default function GitRevisionVitePlugin (options?: GitRevisionPluginOption
         })
 
       // 执行lastCommitDateTime
-      getLastCommitDateTime(mergeOptions)
+      await getLastCommitDateTime(mergeOptions)
         .then((output: string) => {
           config.define![`${LASTCOMMITDATETIME_VAR}`] = JSON.stringify(output)
         })

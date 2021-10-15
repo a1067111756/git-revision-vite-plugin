@@ -310,7 +310,7 @@ ___
       }
     }
     
-    // .eslintrc.json - 解决ts找不到声明变量
+    // global.d.ts - 解决ts找不到声明变量
     declare const BRANCH: string
     declare const COMMITHASH: string
     declare const VERSION: string
