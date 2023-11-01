@@ -1,21 +1,19 @@
 {
   "env": {
+    "node": true,
     "browser": true,
-    "node": false
+    "es2021": true
   },
-  "extends": [
-    /** @see https://eslint.vuejs.org/rules/ */
-    "plugin:@typescript-eslint/recommended",
-    "plugin:vue/vue3-recommended",
-    "eslint:recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "parser": "@typescript-eslint/parser",
-    "ecmaVersion": 12,
+    "ecmaVersion": 13,
     "sourceType": "module"
   },
+  "plugins": ["@typescript-eslint"],
   "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
-    "vue/singleline-html-element-content-newline": "off"
+    "@typescript-eslint/no-unused-vars": "error"
   }
 }

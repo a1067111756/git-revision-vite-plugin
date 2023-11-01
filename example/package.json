@@ -1,13 +1,13 @@
 {
   "name": "example",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview"
   },
   "dependencies": {
-    "git-revision-vite-plugin": "^0.0.7",
     "vue": "^3.2.16"
   },
   "devDependencies": {

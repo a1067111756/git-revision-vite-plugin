@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/git-revision-vite-plugin.iml" filepath="$PROJECT_DIR$/.idea/git-revision-vite-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/vite-plugin-glob-eager-auto-declare.iml" filepath="$PROJECT_DIR$/.idea/vite-plugin-glob-eager-auto-declare.iml" />
     </modules>
   </component>
 </project>

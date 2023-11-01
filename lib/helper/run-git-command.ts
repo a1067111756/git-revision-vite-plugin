@@ -1,9 +1,7 @@
+import path from 'path'
 import removeEmptyLines from './remove-empty-lines'
+import { exec, execSync } from 'child_process'
 import type { GitRevisionPluginOptions } from '../types'
-
-const path = require('path')
-const exec = require('child_process').exec;
-const execSync = require('child_process').execSync;
 
 interface Cb {
   (err: Error | null, output: string): void

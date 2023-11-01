@@ -346,3 +346,10 @@ export default defineConfig(async ({ command, mode }) => {
 
 // 该功能扩展实现了自定义执行git命令，这样这个插件的可玩性就增加了很多
 ```
+
+### 六、更新记录
+```
+    v0.0.11:
+      fixed: 修复项目使用type: module, 设置esModule模式调用此插件报错问题，
+             参见https://github.com/a1067111756/git-revision-vite-plugin/issues/2
+```

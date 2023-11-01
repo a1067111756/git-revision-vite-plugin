@@ -1,9 +1,11 @@
+import { Plugin } from 'vite'
+
 // 默认导出
-declare function GitRevisionVitePlugin(options?: GitRevisionPluginOptions): Plugin_2;
+declare function GitRevisionVitePlugin(options?: GitRevisionPluginOptions): Plugin;
 export default GitRevisionVitePlugin;
 
 // 自定义执行git命令
-declare export function runGitDefineCommand(gitCommand: string): Promise<string>
+export declare function runGitDefineCommand(gitCommand: string): Promise<string>
 
 // 全局配置选项
 export interface GitRevisionPluginOptions {

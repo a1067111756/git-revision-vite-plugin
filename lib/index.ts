@@ -1,6 +1,5 @@
-import { Plugin } from 'vite'
-import { UserConfig } from 'vite'
 import {getCommitHash, getVersion, getBranch, getLastCommitDateTime, runGitCommand} from './helper/run-git-command'
+import type { Plugin, UserConfig } from 'vite'
 import type { GitRevisionPluginOptions } from './types'
 
 // 预定义命令
